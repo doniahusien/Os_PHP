@@ -9,9 +9,10 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    
+   // widget for building a slider
     return PageView.builder(
         controller: controller.pageController,
+         // Call onPageChanged method from the controller
         onPageChanged: (val) {
           controller.onPageChanged(val);
         },
@@ -35,7 +36,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
                     width: double.infinity,
                     alignment: Alignment.center,
                     child: Text(
-                      onBoardingList[i].body!,
+                      onBoardingList[i].body!,//Body text from the static data
                       textAlign: TextAlign.center,
                       style: TextStyle(
           height: 2,

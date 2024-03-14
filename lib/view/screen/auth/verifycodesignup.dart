@@ -7,12 +7,15 @@ import 'package:os/view/widget/auth/customtexttitleauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+//screen for verifying signup code
+
+
 class VerifyCodeSignUp extends StatelessWidget {
-  const VerifyCodeSignUp({super.key});
+  const VerifyCodeSignUp({super.key}); // Constructor for VerifyCodeSignUp
 
   @override
   Widget build(BuildContext context) {
-    Get.put(VerifyCodeSignUpControllerImp());
+    Get.put(VerifyCodeSignUpControllerImp()); // Initialize the verify code signup controller using GetX
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -24,19 +27,29 @@ class VerifyCodeSignUp extends StatelessWidget {
                   .headline1!
                   .copyWith(color: AppColor.grey)),
         ),
+
+
         body: GetBuilder<VerifyCodeSignUpControllerImp>(
           builder: (controller) => 
+           // Display a loading if the status request is loading when sign up
           controller.statusRequest == StatusRequest .loading?
           Center(child: Text("Loading ..."),):
+          // Otherwise, display the verification code input form
           Container(
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
             child: ListView(children: [
               const SizedBox(height: 20),
+
+              // Custom text title widget for displaying "Check code"
               const CustomTextTitleAuth(text: "Check code"),
               const SizedBox(height: 10),
+              
+              //text body widget for displaying instructions
               const CustomTextBodyAuth(
                   text: "Please Enter The Digit Code Sent To wael@gmail.com"),
               const SizedBox(height: 15),
+
+               // OTP text field for entering verification code
               OtpTextField(
                 fieldWidth: 50.0,
                 borderRadius: BorderRadius.circular(20),
@@ -46,6 +59,8 @@ class VerifyCodeSignUp extends StatelessWidget {
                 onCodeChanged: (String code) {
                 },
                 onSubmit: (String verificationCode) {
+                  
+                  // Callback function when the verification code is submitted
                   controller.goToSuccessSignUp(verificationCode);
                 },
               ),

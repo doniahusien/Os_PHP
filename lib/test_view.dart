@@ -9,19 +9,19 @@ class TestView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(TestController());
+    Get.put(TestController());// Initialize TestController instance using GetX
     return Scaffold(
 
       appBar: AppBar(title: Text("Title") , 
-      backgroundColor: AppColor.primaryColor,
+      backgroundColor: AppColor.primaryColor,// AppColor=> where colors used throughout the application are defined in it.
       ),
       body: GetBuilder<TestController>(builder: (controller) {
         return HandlingDataView(
-            statusRequest: controller.statusRequest,
+            statusRequest: controller.statusRequest,// Status of data request
             widget: ListView.builder(
                 itemCount: controller.data.length,
                 itemBuilder: (context, index) {
-                  return Text("${controller.data}");
+                  return Text("${controller.data}");// Displaying data at the current index
                 }));
       }),
     );

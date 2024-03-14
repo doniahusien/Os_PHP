@@ -7,20 +7,28 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 
+
 class OnBoarding extends StatelessWidget {
   const OnBoarding({super.key});
 
   @override
    Widget build(BuildContext context) {
-    Get.put(OnBoardingControllerImp()) ;
+    Get.put(OnBoardingControllerImp()) ; // Initialize the onboarding controller using GetX
     return Scaffold(
         backgroundColor: AppColor.backgroundcolor,
         body: SafeArea(
-          child: Column(children: [
+          child: Column(
+            children: [
+
+            // Slider(image also in widget) section for onboarding content
             const Expanded(
               flex: 4,
               child: CustomSliderOnBoarding(),
             ),
+
+
+
+            // Bottom section with dot controller and button
             Expanded(
                 flex: 1,
                 child: Column(

@@ -18,6 +18,7 @@ class TestModel {
       this.usersApprove,
       this.usersCreate});
 
+// This constructor is used for deserializing JSON data into an instance of TestModel.
   TestModel.fromJson(Map<String, dynamic> json) {
     usersId = json['users_id'];
     usersName = json['users_name'];

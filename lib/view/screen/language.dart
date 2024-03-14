@@ -2,9 +2,10 @@ import 'package:os/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:os/core/localization/changelocal.dart';
-
 import '../widget/language/custombuttonlang.dart';
 
+
+// screen for selecting app language.
 class Language extends GetView<LocaleController> {
   const Language({super.key});
 
@@ -16,22 +17,30 @@ class Language extends GetView<LocaleController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("1".tr, style: Theme.of(context).textTheme.headline1),
+            // Text widget displaying localized text for language selection
+            Text("1".tr, // Getting translation for "1" key
+            style: Theme.of(context).textTheme.headline1),
             const SizedBox(
               height: 20,
             ),
+
+
+             // Button for selecting English language
             CustomButtonLang(
-              textbutton: "En",
+              textbutton: "En",// Text displayed on the button
               onPressed: () {
-                controller.changeLang("en");
-                Get.toNamed(AppRoute.onBoarding);
+                controller.changeLang("en");// Change app language to English
+                Get.toNamed(AppRoute.onBoarding);  // Navigate to the onboarding screen
               },
             ),
+
+
+              // Button for selecting Arabic language
             CustomButtonLang(
-              textbutton: "Ar",
+              textbutton: "Ar",// Text displayed on the button
               onPressed: () {
-                controller.changeLang("ar");
-                Get.toNamed(AppRoute.onBoarding);
+                controller.changeLang("ar"); // Change app language to Arabic
+                Get.toNamed(AppRoute.onBoarding);   // Navigate to the onboarding screen
               },
             ),
           ],

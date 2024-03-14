@@ -43,6 +43,11 @@ dependencies:
   flutter_otp_text_field: ^1.1.1
   lottie: ^3.1.0
   dartz: ^0.10.1
+  http: ^1.2.1
+  show_up_animation: ^2.0.0
+  auto_animated: ^3.2.0
+  path: ^1.9.0
+  responsive_builder: ^0.7.0
 
 dev_dependencies:
   flutter_test:
@@ -67,13 +72,16 @@ flutter:
   uses-material-design: true
 
 assets:
-  - assets/images/
+    - assets/images/
+    - assets/lottie/
 
 fonts:
   - family: Cairo
     fonts:
       - asset:assets/fonts/Cairo/cairo-Regular.ttf
       - asset:assets/fonts/Cairo/cairo-Bold.ttf
+
+
   - family: PlayfairDisplay
     fonts:
       - asset:assets/fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf

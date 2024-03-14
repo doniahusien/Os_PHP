@@ -11,11 +11,16 @@ import 'package:os/view/widget/auth/textsignup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+
+// Screen for user login
+
+
 class Login extends StatelessWidget {
   const Login({super.key});
 
   @override
  Widget build(BuildContext context) {
+  // Initialize the login controller using GetX
     LoginControllerImplement controller = Get.put(LoginControllerImplement());
     return Scaffold(
       appBar: AppBar(
@@ -29,67 +34,83 @@ class Login extends StatelessWidget {
                 .copyWith(color: AppColor.grey)),
       ),
       body: WillPopScope(
+
+        // Alert dialog for confirming exit from the app
           onWillPop: alertExitApp,
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
             child: Form(
-              key: controller.formstate,
+              key: controller.formstate,// Form state key
               child: ListView(children: [
-                const LogoAuth(),
+                const LogoAuth(),// Logo widget
                 const SizedBox(height: 20),
-                CustomTextTitleAuth(text: "10".tr),
+                CustomTextTitleAuth(text: "10".tr),// Custom text title widget with translation
                 const SizedBox(height: 10),
-                CustomTextBodyAuth(text: "11".tr),
+                CustomTextBodyAuth(text: "11".tr),// Custom text body widget with translation
                 const SizedBox(height: 15),
+
+
+                // Text form field for entering email
                 CustomTextFormAuth(
                   isNumber: false,
-
                   valid: (val) {
-                    return validInput(val!, 5, 100, "email");
+                    return validInput(val!, 5, 100, "email");// Validation function for email
                   },
-                  mycontroller: controller.email,
-                  hinttext: "12".tr,
-                  iconData: Icons.email_outlined,
-                  labeltext: "18".tr,
-                  // mycontroller: ,
+                  mycontroller: controller.email,// Controller for email field
+                  hinttext: "12".tr,// Hint text for email
+                  iconData: Icons.email_outlined,// Icon for email
+                  labeltext: "18".tr,// Label text for email
                 ),
+
+
+
                 GetBuilder<LoginControllerImplement>(
                   builder: (controller) => CustomTextFormAuth(
-                    obscureText: controller.isshowpassword,
+                    obscureText: controller.isshowpassword,    // Text form field for entering password
                     onTapIcon: () {
-                      controller.showPassword();
+                      controller.showPassword();// Function to toggle password visibility
                     },
                     isNumber: false,
                     valid: (val) {
-                      return validInput(val!, 5, 30, "password");
+                      return validInput(val!, 5, 30, "password");// Validation function for password
                     },
-                    mycontroller: controller.password,
-                    hinttext: "13".tr,
-                    iconData: Icons.lock_outline,
-                    labeltext: "19".tr,
-                    // mycontroller: ,
+                    mycontroller: controller.password, // Controller for password field
+                    hinttext: "13".tr, // Hint text for password field
+                    iconData: Icons.lock_outline,// Icon for password
+                    labeltext: "19".tr,// Label text for password field
                   ),
                 ),
+
+
+                 // Widget for "Forgot Password?" text
                 InkWell(
                   onTap: () {
-                    controller.goToForgetPassword();
+                    controller.goToForgetPassword();// Function to navigate to forgot password screen
                   },
                   child: Text(
-                    "14".tr,
+                    "14".tr,// Translation for "Forgot Password?" text
                     textAlign: TextAlign.right,
                   ),
                 ),
+
+
+                // Button for login
                 CustomButtonAuth(
-                    text: "15".tr,
+                    text: "15".tr,// Translation for button text
                     onPressed: () {
-                      controller.login();
+                      controller.login();// Function to perform login
                     }),
+
+
                 const SizedBox(height: 40),
+
+
+              // Widget for "Don't have an account? Sign Up" text
                 CustomTextSignUpOrSigIn(
-                  textone: "16".tr,
-                  texttwo: "17".tr,
+                  textone: "16".tr,// Translation for "Don't have an account?" text
+                  texttwo: "17".tr, // Translation for "Sign Up" text
                   onTap: () {
-                    controller.goToSignUp();
+                    controller.goToSignUp();// Function to navigate to sign up screen
                   },
                 )
               ]),

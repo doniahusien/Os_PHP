@@ -2,7 +2,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+// manages shared preferences initialization and access
 class MyServices extends GetxService {
   late SharedPreferences sharedPreferences ; 
   Future<MyServices> init() async {

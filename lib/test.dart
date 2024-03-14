@@ -19,6 +19,7 @@ class _TestState extends State<Test> {
           padding: EdgeInsets.all(20),
           child: ListView(
             children: [
+              //package OTP text field المربعات اللي ببتكتب فيها رمز التحقق
               OtpTextField(
                 fieldWidth: 50.0,
                 borderRadius: BorderRadius.circular(20),
