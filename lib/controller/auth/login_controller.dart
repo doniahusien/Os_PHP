@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:os/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,14 +10,31 @@ abstract class LoginController extends GetxController {
 }
 
 class LoginControllerImplement extends LoginController {
-  late TextEditingController email;
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
+    late TextEditingController email;
   late TextEditingController password;
+
+  bool isshowpassword = true;
+
+  showPassword() {
+    isshowpassword = isshowpassword == true ? false : true;
+    update();
+  }
+
   @override
-  login() {}
+  login() {
+    var formdata = formstate.currentState;
+    if (formdata!.validate()) {
+      print("Valid");
+    } else {
+      print("Not Valid");
+    }
+  }
 
   @override
   goToSignUp() {
-    Get.toNamed(AppRoute.signUp);
+    Get.offNamed(AppRoute.signUp);
   }
 
   @override

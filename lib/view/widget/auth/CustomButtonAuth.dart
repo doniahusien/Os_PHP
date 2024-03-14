@@ -7,7 +7,7 @@ class CustomButtonAuth extends StatelessWidget {
   const CustomButtonAuth({super.key, required this.text, this.onPressed});
 
   @override
-  Widget build(BuildContext context) {
+    Widget build(BuildContext context) {
     return Container(
       margin:const EdgeInsets.only(top: 10),
       child: MaterialButton(

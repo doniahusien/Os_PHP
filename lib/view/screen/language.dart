@@ -1,11 +1,11 @@
 import 'package:os/core/constant/routes.dart';
-import 'package:os/core/localization/changelocal.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:os/core/localization/changelocal.dart';
 
 import '../widget/language/custombuttonlang.dart';
 
-class Language extends GetView<LocalController> {
+class Language extends GetView<LocaleController> {
   const Language({super.key});
 
   @override

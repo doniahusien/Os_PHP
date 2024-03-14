@@ -5,7 +5,7 @@ class CustomTextBodyAuth extends StatelessWidget {
   const CustomTextBodyAuth({super.key, required this.text});
 
   @override
-  Widget build(BuildContext context) {
+   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 25),
       child: Text(
